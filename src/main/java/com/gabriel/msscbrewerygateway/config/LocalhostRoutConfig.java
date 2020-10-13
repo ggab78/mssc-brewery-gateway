@@ -15,10 +15,13 @@ public class LocalhostRoutConfig {
         return builder.routes()
                 .route(r -> r.path("/api/v1/beer", "/api/v1/beer/*","/api/v1/beer/upc/*")
                         .uri("http://localhost:8080")
-                        .id("beerservice"))
-                        .route(r->r.path("/api/v1/customers/**/orders","/api/v1/customers/*/orders/*","/api/v1/customers/**/orders/**/pickup" )
+                        .id("beer-service"))
+                        .route(r->r.path("/api/v1/customers/*/orders","/api/v1/customers/*/orders/*","/api/v1/customers/*/orders/*/pickup" )
                         .uri("http://localhost:8081")
-                        .id("beerorderservice"))
+                        .id("order-service"))
+                        .route(r->r.path("/api/v1/beer/*/inventory")
+                        .uri("http://localhost:8082")
+                        .id("inventory-service"))
                 .build();
 
     }
