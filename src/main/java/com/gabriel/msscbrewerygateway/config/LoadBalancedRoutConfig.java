@@ -6,7 +6,6 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.http.codec.ServerCodecConfigurer;
 
 @Profile("local-discovery")
 @Configuration
@@ -29,9 +28,5 @@ public class LoadBalancedRoutConfig {
 
     }
 
-    @Bean
-    public ServerCodecConfigurer serverCodecConfigurer() {
-        return ServerCodecConfigurer.create();
-    }
 
 }
